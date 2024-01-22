@@ -1,0 +1,6 @@
+        <!-- TAB -->
+<ul class="flex gap-2">
+    <li *ngFor="let tab of tabs" class="flex-auto"><a (click)="changeTab($event, tab)" class="flex justify-center items-center rounded px-3 py-2 transition-all border border-grey-light/30" [ngClass]="{'bg-blue-sec': tab.active}" href="#">{{tab.tabName}}</a></li>
+</ul>
+
+<ng-content></ng-content>

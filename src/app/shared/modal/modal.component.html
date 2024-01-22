@@ -1,0 +1,15 @@
+<div  class="fixed inset-0 overflow-y-auto text-grey-light" [ngClass]="{hidden: !modalService.getModalVisbility(modalId)}">
+
+    <div (click)="closeModal()"  class="fixed inset-0 bg-blue-main opacity-75"></div>
+
+    <div class="z-10 flex justify-center mt-6">
+        <div class="z-10 w-full max-w-xl mt-5 p-4 bg-blue-main border border-blue-light/30 rounded-lg shadow-lg">
+            <div class="flex justify-between">
+                <!-- HEADING -->
+                <ng-content select="[heading]"></ng-content>
+                <div (click)="closeModal()" class="cursor-pointer">&#x2715;</div>
+            </div>
+            <ng-content></ng-content>
+        </div>
+    </div>
+</div>
