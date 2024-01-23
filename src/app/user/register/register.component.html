@@ -1,25 +1,27 @@
+<app-alert *ngIf="showAlert" [color]="alertColor">{{alertMsg}}</app-alert>
+
 <!-- FORM REGISTER -->
-<form class="text-grey-light/80" [formGroup]="registerForm">
+<form class="text-grey-light/80" [formGroup]="registerForm" (ngSubmit)="register()">
     <div class="flex flex-col gap-1 mt-4">
         <label>Name</label>
-        <input formControlName="name" type="text" class="p-2 rounded focus:outline-none bg-blue-main-input border border-blue-light/30" placeholder="Enter name">
-        <p>{{registerForm.controls['name'].errors | json}}</p>
+        <app-input [control]="name" type="text" placeholder="Enter name"></app-input>
     </div>
+    
     <div class="flex flex-col gap-1 mt-4">
         <label>Email</label>
-        <input formControlName="email" type="email" class="p-2 rounded focus:outline-none bg-blue-main-input border border-blue-light/30" placeholder="Enter email">
+        <app-input [control]="email" type="email" placeholder="Enter email"></app-input>
     </div>
     <div class="flex flex-col gap-1 mt-4">
         <label>Age</label>
-        <input formControlName="age" type="number" min="1" class="p-2 rounded focus:outline-none bg-blue-main-input border border-blue-light/30" placeholder="Enter age">
+        <app-input [control]="age" type="number" placeholder="Enter age"></app-input>
     </div>
     <div class="flex flex-col gap-1 mt-4">
         <label>Password</label>
-        <input formControlName="password" type="password" autocomplete="new-password" min="1" class="p-2 rounded focus:outline-none bg-blue-main-input border border-blue-light/30" placeholder="Enter password">
+        <app-input [control]="password" type="password" placeholder="Enter password"></app-input>
     </div>
     <div class="flex flex-col gap-1 mt-4">
         <label>Confirm password</label>
-        <input formControlName="confirm_password" type="password" autocomplete="new-password" min="1" class="p-2 rounded focus:outline-none bg-blue-main-input border border-blue-light/30" placeholder="Confirm password">
+        <app-input [control]="confirm_password" type="password" placeholder="Confirm password"></app-input>
     </div>
     
     <button class="flex justify-center items-center w-full py-3 mt-4 rounded transition-all bg-blue-sec hover:bg-blue-sec-hover text-grey-light" type="submit">Submit</button>
